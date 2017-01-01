@@ -1,10 +1,12 @@
 package com.ibm.myweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by 刘旭 on 2016/12/31.
  */
 
-public class Province {
+public class Province extends DataSupport{
     private int id;
     private String ProvinceName;
     private int ProvinceCode;

@@ -1,12 +1,14 @@
 package com.ibm.myweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by 刘旭 on 2016/12/31.
  */
 
-public class County {
+public class County extends DataSupport{
     private int id;
-    private int weatherId;
+    private String weatherId;
     private int cityId;
     private String countyName;
 
@@ -18,11 +20,11 @@ public class County {
         this.id = id;
     }
 
-    public int getWeatherId() {
+    public String getWeatherId() {
         return weatherId;
     }
 
-    public void setWeatherId(int weatherId) {
+    public void setWeatherId(String weatherId) {
         this.weatherId = weatherId;
     }
 

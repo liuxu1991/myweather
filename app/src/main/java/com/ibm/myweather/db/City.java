@@ -1,22 +1,24 @@
 package com.ibm.myweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by 刘旭 on 2016/12/31.
  */
 
-public class City {
+public class City extends DataSupport{
     private int id;
     private String cityName;
     private int cityCode;
-    private int provinceCode;
+    private int provinceId;
 
 
-    public int getProvinceCode() {
-        return provinceCode;
+    public int getprovinceId() {
+        return provinceId;
     }
 
-    public void setProvinceCode(int provinceCode) {
-        this.provinceCode = provinceCode;
+    public void setprovinceId(int provinceId) {
+        this.provinceId = provinceId;
     }
 
     public int getId() {
