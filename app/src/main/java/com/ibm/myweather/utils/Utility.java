@@ -2,9 +2,11 @@ package com.ibm.myweather.utils;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.ibm.myweather.db.City;
 import com.ibm.myweather.db.County;
 import com.ibm.myweather.db.Province;
+import com.ibm.myweather.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -72,6 +74,21 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    public static Weather handleWeatherResponse(String response){
+        if (!TextUtils.isEmpty(response)) {
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+                String weatherContent = jsonArray.getJSONObject(0).toString();
+                Weather weather = new Gson().fromJson(weatherContent, Weather.class);
+                return weather;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
 }
